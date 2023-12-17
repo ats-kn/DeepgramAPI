@@ -1,7 +1,7 @@
 import sys
 from deepgram import Deepgram
 import asyncio, json
-from .local_settings import *
+from local_settings import *
 
 # Your Deepgram API Key
 
@@ -9,7 +9,7 @@ from .local_settings import *
 # Location of the file you want to transcribe. Should include filename and extension.
 # Example of a local file: ../../Audio/life-moves-pretty-fast.wav
 # Example of a remote file: https://static.deepgram.com/examples/interview_speech-analytics.wav
-FILE = 'C:\\Users\\atsus\\Downloads\\LS_70009.wav'
+FILE = "D:\\研究動画\\音声 002.wav"
 
 # Mimetype for the file you want to transcribe
 # Include this line only if transcribing a local file
@@ -48,7 +48,7 @@ async def main():
         "language": "ja", 
         "smart_format": True, 
         "punctuate": True, 
-        "utterances": True, 
+        "utterances": False, 
         "diarize": True, 
       }
     )
@@ -59,9 +59,14 @@ async def main():
 
   # Write only the transcript to the console
   transcript = response["results"]["channels"][0]["alternatives"][0]["paragraphs"]["transcript"]
-  target_substring = "Speaker"
+
+
+  speakerall = transcript.count("Speaker")
+  speaker0 = transcript.count("Speaker 0")
+  speaker1 = transcript.count("Speaker 1")
+
   print(transcript)
-  print(f"発話量：{transcript.count(target_substring)}")
+  print(f"発話量：{transcript.count(speakerall)}")
 
 try:
   # If running in a Jupyter notebook, Jupyter is already running an event loop, so run main with this line instead:
