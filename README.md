@@ -3,7 +3,7 @@
 2. python用のdeepgram-sdkをターミナルからインストール（pip install deepgram-sdk）
 3. このリポジトリをクローンする
 4. このリポジトリ内にlocal_settings.pyファイルを作成
-5. ファイル内にAPI Keyを記載(DEEPGRAM_API_KEY = 'your_api_key')
+5. ファイル内にAPI Keyを記載 (DEEPGRAM_API_KEY = 'your_api_key')
 6. ターミナルで"py -3.7 bias.py" or "python bias.py"を実行
 
 ## 使用要件
